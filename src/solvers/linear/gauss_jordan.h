@@ -2,7 +2,7 @@
  * gauss_jordan.h
  *
  * Safety-critical Gauss-Jordan elimination with partial pivoting.
- * Solves the n x n linear system  A * x = b.
+ * Solves the n × n linear system  A * x = b.
  *
  * Safety constraints:
  *   - No dynamic memory allocation (working storage is on the stack)
@@ -35,6 +35,10 @@ extern "C" {
  *   NUM_ERR_BAD_INPUT   n is out of [1, NUM_MAX_N].
  *   NUM_ERR_NO_SOLUTION System is inconsistent.
  *   NUM_ERR_INFINITE    System is underdetermined (free variables exist).
+ *
+ * Memory ownership:
+ *   The augmented matrix is stack-allocated inside this function.
+ *   A and b are never written. x is written only on NUM_OK.
  */
 Num_Status gauss_jordan_solve(
     const double A[NUM_MAX_N][NUM_MAX_N],

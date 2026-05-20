@@ -1,7 +1,7 @@
 /*
  * numerics.h
  *
- * Shared configuration and status codes for all safety-critical matrix modules.
+ * Shared configuration and status codes for the entire library.
  *
  * Safety constraints (apply to every .c that includes this header):
  *   - No dynamic memory allocation
@@ -25,11 +25,11 @@ extern "C" {
 #define NUM_EPSILON 1.0e-10
 
 typedef enum {
-    NUM_OK             =  0,  /* Operation completed successfully          */
-    NUM_ERR_BAD_INPUT  = -1,  /* n out of range, or NULL-equivalent input */
-    NUM_ERR_NO_SOLUTION = -2, /* System is inconsistent                   */
-    NUM_ERR_INFINITE   = -3,  /* System has infinitely many solutions     */
-    NUM_ERR_SINGULAR   = -4   /* Matrix is singular or near-singular      */
+    NUM_OK              =  0,   /* Operation completed successfully          */
+    NUM_ERR_BAD_INPUT   = -1,   /* n out of range, or NULL-equivalent input */
+    NUM_ERR_NO_SOLUTION = -2,   /* System is inconsistent                   */
+    NUM_ERR_INFINITE    = -3,   /* System has infinitely many solutions     */
+    NUM_ERR_SINGULAR    = -4    /* Matrix is singular or near-singular      */
 } Num_Status;
 
 /* Human-readable description of a status code. Never returns NULL. */
